@@ -4,9 +4,11 @@ export default function AppLayout() {
     return (
         <>
             <nav>
-                <Link to="/">Home</Link>
-                <Link to="/sobre">Sobre</Link>
-                <Link to="/contato">Contato</Link>
+                <div>
+                    <Link to="/">Home</Link>
+                </div>
+                
+                <button>+ Criar</button>
             </nav>
 
             <Outlet />

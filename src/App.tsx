@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
 import Home from "./pages/home.tsx";
+import "./App.css"
 
 export default function App() {
 	return (

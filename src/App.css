@@ -1,9 +1,113 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin:  0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
 :root {
     --lpurple: color-mix(in srgb, var(--purple) 65%, white);
     --purple: rgb(115, 30, 255);
     --dpurple: color-mix(in srgb, var(--purple) 65%, black);
+
+    --gray1: rgb(0, 0, 0);
+    --gray2: color-mix(in srgb, var(--gray1) 95%, white);
+    --gray3: color-mix(in srgb, var(--gray1) 90%, white);
+    --gray4: color-mix(in srgb, var(--gray1) 85%, white);
+    --gray5: color-mix(in srgb, var(--gray1) 80%, white);
+    --gray6: color-mix(in srgb, var(--gray1) 75%, white);
+
+    --tgray1: color-mix(in srgb, var(--gray1) 80%, transparent);
+    --tgray2: color-mix(in srgb, var(--gray2) 80%, transparent);
+    --tgray3: color-mix(in srgb, var(--gray3) 80%, transparent);
+    --tgray4: color-mix(in srgb, var(--gray4) 80%, transparent);
+    --tgray5: color-mix(in srgb, var(--gray5) 80%, transparent);
+    --tgray6: color-mix(in srgb, var(--gray6) 80%, transparent);
+
+    --bd-width: 1px;
+
+    /* Button */
+    --btn-bg-color:        var(--gray3);
+    --btn-hover-bg-color:  var(--gray5);
+    --btn-active-bg-color: var(--purple);
+    --btn-bd-color:        var(--gray5);
+
+    /* Body */
+    --body-bg-color:   var(--gray1);
+    --body-grid-color: var(--gray3);
+    --body-grid-size:  2rem;
+
+    /* App Nav */
+    --app-nav-width:        fit-content;
+    --app-nav-height:       3rem;
+
+    --app-nav-bg-color:     var(--tgray2);
+    --app-nav-bd-color:     var(--tgray3);
+    --app-nav-br:           calc(var(--app-nav-height) / 2);
+
+    --app-nav-child-height:  2rem;
+    --app-nav-child-padding: 0 1rem;
+    --app-nav-child-br:      calc(var(--app-nav-child-height) / 2);
 }
 
+h1, h2, h3, h4, h5, h6, p, i, button { color: rgb(245, 245, 250); }
+
 body {
-    background-color: var(--dpurple);
+    background-color: var(--body-bg-color);
+    background-image:
+        linear-gradient(to right,  var(--body-grid-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--body-grid-color) 1px, transparent 1px);
+    background-size: var(--body-grid-size) var(--body-grid-size);
+}
+
+button, .btn {
+    display:         inline-flex;
+    align-items:     center;
+    justify-content: center;
+
+    background-color: var(--btn-bg-color);
+    border:           var(--bd-width) solid var(--btn-bd-color);
+    
+    cursor:     pointer;
+    transition: background-color 0.3s ease-out, border 0.3s ease-out, color 0.3s ease-out;
+}
+
+button:hover, 
+.btn:hover {
+    background-color: var(--btn-hover-bg-color);
+}
+
+button:active, 
+button.active,
+.btn:active,
+.btn.active {
+    background-color: var(--btn-active-bg-color);
+    border-color:     var(--btn-active-bg-color);
+}
+
+nav {
+    display:         flex;
+    align-items:     center;
+    justify-content: space-between;
+    position:        fixed;
+    bottom:          1rem;
+    left:            1rem;
+    width:           var(--app-nav-width);
+    height:          var(--app-nav-height);
+    padding:         calc((var(--app-nav-height) - var(--app-nav-child-height)) / 2);
+    gap:             calc((var(--app-nav-height) - var(--app-nav-child-height)) / 2);
+
+    background-color:        var(--app-nav-bg-color);
+    -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+    border:                  var(--bd-width) solid var(--app-nav-bd-color);
+    border-radius:           var(--app-nav-br);
+}
+
+nav button {
+    height:        var(--app-nav-child-height);
+    padding:       var(--app-nav-child-padding);
+    border-radius: var(--app-nav-child-br);
 }
