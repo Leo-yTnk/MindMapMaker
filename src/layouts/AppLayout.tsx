@@ -5,10 +5,10 @@ export default function AppLayout() {
         <>
             <nav>
                 <div>
-                    <Link to="/">Home</Link>
+                    <Link to="/" className="btn">Home</Link>
                 </div>
                 
-                <button>+ Criar</button>
+                <button className="active">+ Criar</button>
             </nav>
 
             <Outlet />

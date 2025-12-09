@@ -29,8 +29,8 @@
     --bd-width: 1px;
 
     /* Button */
-    --btn-bg-color:        var(--gray3);
-    --btn-hover-bg-color:  var(--gray5);
+    --btn-bg-color:        var(--tgray3);
+    --btn-hover-bg-color:  var(--tgray5);
     --btn-active-bg-color: var(--purple);
     --btn-bd-color:        var(--gray5);
 
@@ -67,8 +67,10 @@ button, .btn {
     align-items:     center;
     justify-content: center;
 
-    background-color: var(--btn-bg-color);
-    border:           var(--bd-width) solid var(--btn-bd-color);
+    background-color:        var(--btn-bg-color);
+    -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+    border:                  var(--bd-width) solid var(--btn-bd-color);
     
     cursor:     pointer;
     transition: background-color 0.3s ease-out, border 0.3s ease-out, color 0.3s ease-out;
@@ -106,8 +108,31 @@ nav {
     border-radius:           var(--app-nav-br);
 }
 
-nav button {
+nav div {
+    display:         flex;
+    align-items:     center;
+    justify-content: space-between;
+    gap:             calc((var(--app-nav-height) - var(--app-nav-child-height)) / 2);
+}
+
+nav button,
+nav .btn {
     height:        var(--app-nav-child-height);
     padding:       var(--app-nav-child-padding);
     border-radius: var(--app-nav-child-br);
+
+    text-decoration: none;
+    color:         white;
+}
+
+@media (min-width: 768px) {
+    :root {
+        --app-nav-width: 100%;
+        --app-nav-br: 0;
+    }
+
+    nav {
+        top:  0;
+        left: 0;
+    }
 }
