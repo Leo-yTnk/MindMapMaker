@@ -1,0 +1,9 @@
+:root {
+    --lpurple: color-mix(in srgb, var(--purple) 65%, white);
+    --purple: rgb(115, 30, 255);
+    --dpurple: color-mix(in srgb, var(--purple) 65%, black);
+}
+
+body {
+    background-color: var(--dpurple);
+}
