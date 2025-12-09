@@ -19,18 +19,11 @@
     --gray5: color-mix(in srgb, var(--gray1) 80%, white);
     --gray6: color-mix(in srgb, var(--gray1) 75%, white);
 
-    --tgray1: color-mix(in srgb, var(--gray1) 80%, transparent);
-    --tgray2: color-mix(in srgb, var(--gray2) 80%, transparent);
-    --tgray3: color-mix(in srgb, var(--gray3) 80%, transparent);
-    --tgray4: color-mix(in srgb, var(--gray4) 80%, transparent);
-    --tgray5: color-mix(in srgb, var(--gray5) 80%, transparent);
-    --tgray6: color-mix(in srgb, var(--gray6) 80%, transparent);
-
     --bd-width: 1px;
 
     /* Button */
-    --btn-bg-color:        var(--tgray3);
-    --btn-hover-bg-color:  var(--tgray5);
+    --btn-bg-color:        var(--gray3);
+    --btn-hover-bg-color:  var(--gray5);
     --btn-active-bg-color: var(--purple);
     --btn-bd-color:        var(--gray5);
 
@@ -43,8 +36,8 @@
     --app-nav-width:        fit-content;
     --app-nav-height:       3rem;
 
-    --app-nav-bg-color:     var(--tgray2);
-    --app-nav-bd-color:     var(--tgray3);
+    --app-nav-bg-color:     var(--gray2);
+    --app-nav-bd-color:     var(--gray3);
     --app-nav-br:           calc(var(--app-nav-height) / 2);
 
     --app-nav-child-height:  2rem;
@@ -67,10 +60,10 @@ button, .btn {
     align-items:     center;
     justify-content: center;
 
-    background-color:        var(--btn-bg-color);
-    -webkit-backdrop-filter: blur(4px);
-            backdrop-filter: blur(4px);
-    border:                  var(--bd-width) solid var(--btn-bd-color);
+    background-color: var(--btn-bg-color);
+    border:           var(--bd-width) solid var(--btn-bd-color);
+
+    font-size: 0.85rem;
     
     cursor:     pointer;
     transition: background-color 0.3s ease-out, border 0.3s ease-out, color 0.3s ease-out;
@@ -101,11 +94,9 @@ nav {
     padding:         calc((var(--app-nav-height) - var(--app-nav-child-height)) / 2);
     gap:             calc((var(--app-nav-height) - var(--app-nav-child-height)) / 2);
 
-    background-color:        var(--app-nav-bg-color);
-    -webkit-backdrop-filter: blur(4px);
-            backdrop-filter: blur(4px);
-    border:                  var(--bd-width) solid var(--app-nav-bd-color);
-    border-radius:           var(--app-nav-br);
+    background-color: var(--app-nav-bg-color);
+    border:           var(--bd-width) solid var(--app-nav-bd-color);
+    border-radius:    var(--app-nav-br);
 }
 
 nav div {
