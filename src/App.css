@@ -8,9 +8,9 @@
 }
 
 :root {
-    --lpurple: color-mix(in srgb, var(--purple) 65%, white);
+    --lpurple: color-mix(in srgb, var(--purple) 50%, white);
     --purple: rgb(115, 30, 255);
-    --dpurple: color-mix(in srgb, var(--purple) 65%, black);
+    --dpurple: color-mix(in srgb, var(--purple) 50%, black);
 
     --gray1: rgb(0, 0, 0);
     --gray2: color-mix(in srgb, var(--gray1) 95%, white);
@@ -19,14 +19,29 @@
     --gray5: color-mix(in srgb, var(--gray1) 80%, white);
     --gray6: color-mix(in srgb, var(--gray1) 75%, white);
 
+    --lgray1: color-mix(in srgb, var(--gray1) 80%, transparent);
+    --lgray2: color-mix(in srgb, var(--gray2) 80%, transparent);
+    --lgray3: color-mix(in srgb, var(--gray3) 80%, transparent);
+    --lgray4: color-mix(in srgb, var(--gray4) 80%, transparent);
+    --lgray5: color-mix(in srgb, var(--gray5) 80%, transparent);
+    --lgray6: color-mix(in srgb, var(--gray6) 80%, transparent);
+
     --bd-width:   1px;
     --icons-size: 13px;
 
+    /* Typography */
+    --fs-1: 2.986rem;
+    --fs-2: 2.488rem;
+    --fs-3: 2.074rem;
+    --fs-4: 1.728rem;
+    --fs-5: 1.44rem;
+    --fs-6: 1.2rem;
+
     /* Button */
-    --btn-bg-color:        var(--gray2);
-    --btn-hover-bg-color:  var(--btn-bd-color);
+    --btn-bg-color:        #ffffff0a;
+    --btn-hover-bg-color:  #ffffff1a;
     --btn-active-bg-color: var(--purple);
-    --btn-bd-color:        var(--gray4);
+    --btn-bd-color:        #ffffff0a;
 
     /* Body */
     --body-bg-color:   var(--gray1);
@@ -36,13 +51,26 @@
     /* Main */
     --main-padding: 3rem 3rem calc(var(--app-nav-height) + 3rem) 3rem;
 
+    /* Card */
+    --card-width:        fit-content;
+    --card-height:       3rem;
+    --card-padding:      1.25rem;
+
+    --card-bg-color:     var(--gray2);
+    --card-bd-color:     var(--gray3);
+    --card-br:           17.5px;
+    --card-bs:           0 0 1rem black;
+
     /* App Nav */
     --app-nav-width:        fit-content;
     --app-nav-height:       3rem;
+    --app-nav-padding:      1.25rem;
 
-    --app-nav-bg-color:     var(--gray2);
-    --app-nav-bd-color:     var(--gray3);
+    --app-nav-bg-color:     var(--lgray2);
+    --app-nav-blur:         1rem;
+    --app-nav-bd-color:     var(--lgray3);
     --app-nav-br:           17.5px;
+
 
     --app-nav-child-height:  2rem;
     --app-nav-child-padding: 0 1rem;
@@ -51,6 +79,13 @@
 }
 
 h1, h2, h3, h4, h5, h6, p, i, button { color: rgb(245, 245, 250); }
+
+h1 { font-size: var(--fs-1); }
+h2 { font-size: var(--fs-2); }
+h3 { font-size: var(--fs-3); }
+h4 { font-size: var(--fs-4); }
+h5 { font-size: var(--fs-5); }
+h6 { font-size: var(--fs-6); }
 
 body {
     background-color: var(--body-bg-color);
@@ -85,6 +120,22 @@ button.active,
     border-color:     var(--btn-active-bg-color);
 }
 
+.card {
+    padding: var(--app-nav-padding);
+
+    background-color: var(--card-bg-color);
+    border: var(--bd-width) solid var(--card-bd-color);
+    border-radius: var(--card-br);
+    box-shadow: var(--card-bs);
+}
+
+nav {
+    background-color: var(--app-nav-bg-color);
+    backdrop-filter: blur(var(--app-nav-blur));
+    border:           var(--bd-width) solid var(--app-nav-bd-color);
+    border-radius:    var(--app-nav-br);
+}
+
 nav {
     display:         flex;
     align-items:     center;
@@ -95,11 +146,7 @@ nav {
     width:           var(--app-nav-width);
     height:          var(--app-nav-height);
     padding:         calc((var(--app-nav-height) - var(--app-nav-child-height)) / 2);
-    gap:             calc((var(--app-nav-height) - var(--app-nav-child-height)) / 2);
-
-    background-color: var(--app-nav-bg-color);
-    border:           var(--bd-width) solid var(--app-nav-bd-color);
-    border-radius:    var(--app-nav-br);
+    gap:             calc((var(--app-nav-height) - var(--app-nav-child-height)) / 2);   
 }
 
 nav div {
