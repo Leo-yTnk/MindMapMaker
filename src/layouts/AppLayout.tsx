@@ -12,7 +12,9 @@ export default function AppLayout() {
                 <button className="active">+ Criar</button>
             </nav>
 
-            <Outlet />
+            <main>
+                <Outlet />
+            </main> 
         </>
     );
 }

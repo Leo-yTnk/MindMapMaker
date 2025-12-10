@@ -29,8 +29,11 @@
 
     /* Body */
     --body-bg-color:   var(--gray1);
-    --body-grid-color: var(--gray3);
+    --body-grid-color: var(--gray2);
     --body-grid-size:  2rem;
+
+    /* Main */
+    --main-padding: 3rem 3rem calc(var(--app-nav-height) + 3rem) 3rem;
 
     /* App Nav */
     --app-nav-width:        fit-content;
@@ -116,10 +119,15 @@ nav .btn {
     color:         white;
 }
 
+main {
+    padding: var(--main-padding);
+}
+
 @media (min-width: 768px) {
     :root {
         --app-nav-width: 100%;
         --app-nav-br: 0;
+        --main-padding: calc(var(--app-nav-height) + 3rem) 3rem 3rem 3rem;
     }
 
     nav {

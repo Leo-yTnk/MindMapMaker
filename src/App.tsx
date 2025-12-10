@@ -1,7 +1,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
-import Home from "./pages/home.tsx";
-import Library from "./pages/library.tsx";
+import Home from "./pages/home";
+import Library from "./pages/library";
 import "./App.css"
 
 export default function App() {
@@ -9,6 +9,9 @@ export default function App() {
 		<Routes>
 			<Route path="/" element={<AppLayout />}>
 				<Route index element={<Home />} />
+			</Route>
+
+			<Route path="/library" element={<AppLayout />}>
 				<Route index element={<Library />} />
 			</Route>
 
