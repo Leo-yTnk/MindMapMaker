@@ -3,12 +3,12 @@ export default function Home() {
         <>
             <h1>Home</h1>
             <div className="card highlight">
-                <h4>Lorem</h4>
-                <p>Lorem ipsum</p>
+                <h3>Olá! Pronto para criar algo novo?</h3>
+                <button>Começar a Criar</button>
             </div>
 
             <div className="card">
-                <h4>Lorem</h4>
+                <h3>Lorem</h3>
                 <p>Lorem ipsum</p>
             </div>
         </>
