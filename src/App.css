@@ -8,9 +8,9 @@
 }
 
 :root {
-    --lpurple: color-mix(in srgb, var(--purple) 50%, white);
+    --lpurple: color-mix(in srgb, var(--purple) 65%, white);
     --purple: rgb(115, 30, 255);
-    --dpurple: color-mix(in srgb, var(--purple) 50%, black);
+    --dpurple: color-mix(in srgb, var(--purple) 65%, black);
 
     --gray1: rgb(0, 0, 0);
     --gray2: color-mix(in srgb, var(--gray1) 95%, white);
@@ -50,6 +50,7 @@
 
     /* Main */
     --main-padding: 3rem 3rem calc(var(--app-nav-height) + 3rem) 3rem;
+    --main-gap: 1rem;
 
     /* Card */
     --card-width:        fit-content;
@@ -58,8 +59,16 @@
 
     --card-bg-color:     var(--gray2);
     --card-bd-color:     var(--gray3);
-    --card-br:           17.5px;
+    --card-br:           1.25rem;
     --card-bs:           0 0 1rem black;
+
+    /* Highlight Card */
+    --hcard-padding: 1.75rem; 
+
+    --hcard-bg-color:       var(--dpurple);
+    --hcard-outline-color:  rgba(255, 255, 255, 0.1);
+    --hcard-outline-width:  calc(var(--bd-width) * 2);
+    --hcard-outline-offset: calc(var(--hcard-padding) / -2);
 
     /* App Nav */
     --app-nav-width:        fit-content;
@@ -121,12 +130,21 @@ button.active,
 }
 
 .card {
-    padding: var(--app-nav-padding);
+    padding: var(--card-padding);
 
     background-color: var(--card-bg-color);
-    border: var(--bd-width) solid var(--card-bd-color);
-    border-radius: var(--card-br);
-    box-shadow: var(--card-bs);
+    border:           var(--bd-width) solid var(--card-bd-color);
+    border-radius:    var(--card-br);
+    box-shadow:       var(--card-bs);
+}
+
+.card.highlight {
+    padding: var(--hcard-padding);
+
+    background-color: var(--hcard-bg-color);
+    border:           none;
+    outline:          var(--hcard-outline-width) dashed var(--hcard-outline-color);
+    outline-offset:   var(--hcard-outline-offset);
 }
 
 nav {
@@ -176,7 +194,10 @@ nav .btn svg {
 }
 
 main {
-    padding: var(--main-padding);
+    display:        flex;
+    flex-direction: column;
+    padding:        var(--main-padding);
+    gap:            var(--main-gap);
 }
 
 @media (min-width: 768px) {
