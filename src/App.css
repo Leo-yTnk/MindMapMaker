@@ -19,7 +19,8 @@
     --gray5: color-mix(in srgb, var(--gray1) 80%, white);
     --gray6: color-mix(in srgb, var(--gray1) 75%, white);
 
-    --bd-width: 1px;
+    --bd-width:   1px;
+    --icons-size: 13px;
 
     /* Button */
     --btn-bg-color:        var(--gray2);
@@ -123,7 +124,8 @@ nav .btn {
 
 nav button svg,
 nav .btn svg {
-    font-size: 0.3rem;
+    height: var(--icons-size);
+    width:  var(--icons-size);
 }
 
 main {
