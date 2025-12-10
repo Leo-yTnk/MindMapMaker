@@ -135,9 +135,6 @@ button, .btn {
     align-items:     center;
     justify-content: center;
 
-    background-color: var(--btn-bg-color);
-    border:           none;
-
     font-size: 0.85rem;
     color: var(--btn-fc);
     
@@ -177,7 +174,26 @@ button.active,
 .card .btn {
     height:        var(--card-btn-height);
     padding:       var(--card-btn-padding);
-    border-radius: var(--card-btn-br);
+    gap:         0.3rem;
+
+    background-color: var(--btn-bg-color);
+    border:           none;
+    border-radius:    var(--card-btn-br);
+}
+
+.card button span, 
+.card .btn span {
+    background: var(--btn-fc);
+    -webkit-background-clip: text;
+            background-clip: text;
+    font-weight: bold;
+    font-size: 0.95rem;
+    color: transparent;
+}
+
+.card button svg {
+    height: var(--icons-size);
+    color: var(--highlight);
 }
 
 nav {
