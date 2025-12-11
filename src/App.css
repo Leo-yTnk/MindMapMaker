@@ -46,7 +46,7 @@
     /* Button */
     --btn-bg-color:        white;
     --btn-hover-bg-color:  lightgray;
-    --btn-active-bg-color: linear-gradient(45deg, var(--highlight), var(--secondary-highlight));
+    --btn-active-bg-color: linear-gradient(90deg, var(--highlight), var(--secondary-highlight));
     --btn-fc:              linear-gradient(90deg, var(--highlight), var(--secondary-highlight));
 
     /* Body */
@@ -149,7 +149,9 @@ button:hover,
 
 button.active,
 .btn.active {
-    background:   var(--btn-active-bg-color);
+    background: var(--btn-active-bg-color);
+    background-size: 102% 100%;
+    background-position: center;
 }
 
 .card {
@@ -204,14 +206,21 @@ nav {
     bottom:          1rem;
     left:            1rem;
     width:           var(--app-nav-width);
+    max-width:       calc(100% - 2rem);
     height:          var(--app-nav-height);
     padding:         calc((var(--app-nav-height) - var(--app-nav-child-height)) / 2);
     gap:             calc((var(--app-nav-height) - var(--app-nav-child-height)) / 2);   
 
     background-color: var(--app-nav-bg-color);
-    backdrop-filter: blur(var(--app-nav-blur));
+    backdrop-filter:  blur(var(--app-nav-blur));
     border:           var(--bd-width) solid var(--app-nav-bd-color);
     border-radius:    var(--app-nav-br);
+
+    overflow-x: auto;
+}
+
+nav::-webkit-scrollbar {
+    display: none;
 }
 
 nav div {
@@ -248,10 +257,22 @@ nav .btn svg {
     width:  var(--icons-size);
 }
 
+nav .separator {
+    height: 100%;
+    width:  var(--bd-width);
+
+    background-color: rgba(255, 255, 255, 0.1);
+    
+    flex-shrink: 0;
+}
+
 main {
+    padding: var(--main-padding);
+}
+
+main .content {
     display:        flex;
     flex-direction: column;
-    padding:        var(--main-padding);
     gap:            var(--main-gap);
 }
 
@@ -265,5 +286,10 @@ main {
     nav {
         top:  0;
         left: 0;
+        max-width: none;
+    }
+
+    nav .separator {
+        display: none;
     }
 }

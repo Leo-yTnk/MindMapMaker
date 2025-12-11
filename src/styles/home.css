@@ -1,0 +1,22 @@
+.card.greetings {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+@media (min-width: 768px) {
+    .card.greetings {
+        display: grid;
+        grid-template-areas:
+            'h3 btn'
+            'p btn'
+        ;
+    }
+
+    .card.greetings h3 { grid-area: h3; }
+    .card.greetings p { grid-area: p; }
+    .card.greetings button { 
+        grid-area: btn; 
+        height:    100%;
+    }
+}
