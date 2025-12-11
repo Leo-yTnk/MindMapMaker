@@ -9,11 +9,11 @@
 
 :root {
     --lhighlight: color-mix(in srgb, var(--highlight) 65%, white);
-    --highlight: rgb(75, 0, 200);
+    --highlight: #4b00c8;
     --dhighlight: color-mix(in srgb, var(--highlight) 65%, black);
 
     --secondary-lhighlight: color-mix(in srgb, var(--secondary-highlight) 65%, white);
-    --secondary-highlight: rgb(0, 125, 150);
+    --secondary-highlight: #007d96;
     --secondary-dhighlight: color-mix(in srgb, var(--secondary-highlight) 65%, black);
 
     --gray1: rgb(0, 0, 0);
@@ -61,12 +61,12 @@
     /* Card */
     --card-width:        fit-content;
     --card-height:       3rem;
-    --card-padding:      1.25rem;
+    --card-padding:      1.5rem;
 
     --card-bg-color:     var(--gray2);
     --card-bd-color:     var(--gray3);
     --card-br:           1.25rem;
-    --card-bs:           0 0 1rem black;
+    --card-bs:           0 0 1rem rgba(0, 0, 0, 0.5);
 
     /* Card Button */
     --card-btn-height:   2.25rem;
@@ -80,6 +80,14 @@
     --hcard-outline-color:  rgba(255, 255, 255, 0.125);
     --hcard-outline-width:  calc(var(--bd-width) * 2);
     --hcard-outline-offset: calc(var(--hcard-padding) / -2);
+
+    /* Card Div */
+    --card-div-padding: 1.5rem;
+
+    --card-div-bg-color: rgba(255, 255, 255, 0.1);
+    --card-div-bd-color: rgba(255, 255, 255, 0.1);
+    --card-div-br: 1.5rem;
+    --card-div-separator-color: rgba(255, 255, 255, 0.4);
 
     /* App Nav */
     --app-nav-width:        fit-content;
@@ -130,6 +138,12 @@ body {
     background-size: var(--body-grid-size) var(--body-grid-size);
 }
 
+#default-gradient {
+    height:   0;
+    width:    0;
+    overflow: hidden;
+}
+
 button, .btn {
     display:         inline-flex;
     align-items:     center;
@@ -155,7 +169,10 @@ button.active,
 }
 
 .card {
-    padding: var(--card-padding);
+    display:        flex;
+    flex-direction: column;
+    width:          100%;
+    padding:        var(--card-padding);
 
     background-color: var(--card-bg-color);
     border:           var(--bd-width) solid var(--card-bd-color);
@@ -170,6 +187,11 @@ button.active,
     border:           none;
     outline:          var(--hcard-outline-width) dashed var(--hcard-outline-color);
     outline-offset:   var(--hcard-outline-offset);
+}
+
+.card.white {
+    background-color: var(--wcard-bg);
+    border: none;
 }
 
 .card button,
@@ -196,6 +218,46 @@ button.active,
 .card button svg {
     height: var(--icons-size);
     color: var(--highlight);
+}
+
+.card-div {
+    width:     fit-content;
+    max-width: 100%;
+    padding: var(--card-div-padding);
+
+    background-color: var(--card-div-bg-color);
+    border:           var(--bd-width) solid var(--card-div-bd-color);
+    border-radius:    var(--card-div-br);
+
+    overflow-x: auto;
+}
+
+.card-div::-webkit-scrollbar {
+    display: none;
+}
+
+.card-div ul {
+    display:         flex;
+    align-items:     center;
+    height:          100%;
+    gap:             20px;
+
+    list-style: none;
+
+}
+
+.card-div ul li:not(.separator) {
+    min-width: 10rem;
+}
+
+.card-div ul .separator {
+    height:   3rem;
+    width:    2px;
+    min-width: none;
+    
+    border-radius: 1px;
+    background-color: var(--card-div-separator-color);
+    flex-shrink: 0;
 }
 
 nav {
