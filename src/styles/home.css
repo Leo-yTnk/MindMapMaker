@@ -2,46 +2,22 @@
     position: relative;
     display:        flex;
     flex-direction: column;
-    gap:            var(--main-gap);
+    gap:            var(--small-gap);
 }
 
 .dashboard .card-div {
     width: 100%;
 }
 
-.dashboard-data {
-    position: relative;
-    display:        flex;
-    flex-direction: column;
-}
-
-.dashboard-data h6 {
-    position: absolute;
-
+.dashboard-data ul {
     display:         flex;
     align-items:     center;
-    justify-content: center;
-    height:          2rem;
-    top:            -1rem;
-    left:            50%;
-    padding:         0 1rem;
-    margin-bottom:   10px;
-    transform: translateX(-50%);
+    justify-content: start;
+    width:           fit-content;
+    max-width:       100%;
+    gap:             var(--medium-gap);
 
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(1rem);
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
-    border-radius: 0.5rem;
-
-    text-align: center;
-}
-
-.dashboard-data h6 span {
-    background: var(--btn-fc);
-    
-}
-
-.dashboard-data ul {
+    list-style: none;
     overflow-x: auto;
 }
 
@@ -49,10 +25,16 @@
     display: none;
 }
 
-.dashboard ul li div {
+.dashboard ul li {
+    width: 12.5rem;
+    flex-shrink: 0;
+}
+
+.dashboard ul li button {
     display:        flex;
     flex-direction: column;
     align-items:    center;
+    height:         7.5rem;
     
     text-align: center;
 }
@@ -61,12 +43,4 @@
     width:  calc(var(--icons-size) * 2.5);
     height: calc(var(--icons-size) * 2.5);
     color:  white;
-}
-
-
-@media (min-width: 768px) {
-    .dashboard .card-div {
-        width: fit-content;
-        max-width: calc(100% - 15rem);
-    }
 }

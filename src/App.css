@@ -43,10 +43,16 @@
 
     --h1-bg: linear-gradient(90deg, var(--highlight), var(--secondary-highlight));
 
+    /* Gap */
+    --small-gap:  7.5px;
+    --medium-gap: 10px;
+    --large-gap:  1rem;
+
     /* Button */
-    --btn-bg-color:        white;
-    --btn-hover-bg-color:  lightgray;
+    --btn-bg-color:        rgba(255, 255, 255, 0.05);
+    --btn-hover-bg-color:  rgba(255, 255, 255, 0.1);
     --btn-active-bg-color: linear-gradient(90deg, var(--highlight), var(--secondary-highlight));
+    --btn-bd-color:        rgba(255, 255, 255, 0.05);
     --btn-fc:              linear-gradient(90deg, var(--highlight), var(--secondary-highlight));
 
     /* Body */
@@ -82,12 +88,11 @@
     --hcard-outline-offset: calc(var(--hcard-padding) / -2);
 
     /* Card Div */
-    --card-div-padding: 1.5rem;
+    --card-div-padding: 1rem;
 
-    --card-div-bg-color: rgba(255, 255, 255, 0.1);
+    --card-div-bg-color: rgba(255, 255, 255, 0.075);
     --card-div-bd-color: rgba(255, 255, 255, 0.1);
     --card-div-br: 1rem;
-    --card-div-separator-color: rgba(255, 255, 255, 0.4);
 
     /* App Nav */
     --app-nav-width:        fit-content;
@@ -102,7 +107,7 @@
 
     --app-nav-child-height:  2rem;
     --app-nav-child-padding: 0 1rem;
-    --app-nav-child-gap:     5px;
+    --app-nav-child-gap:     var(--small-gap);
     --app-nav-child-br:      10px;
 }
 
@@ -149,6 +154,9 @@ button, .btn {
     align-items:     center;
     justify-content: center;
 
+    background-color: var(--btn-bg-color);
+    border:           var(--bd-width) solid var(--btn-bd-color);
+
     font-size: 0.85rem;
     color:     var(--btn-fc);
     
@@ -191,37 +199,11 @@ button.active,
 
 .card-div {
     display:   flex;
-    width:     fit-content;
-    max-width: 100%;
     padding:   var(--card-div-padding);
 
     background-color: var(--card-div-bg-color);
     border:           var(--bd-width) solid var(--card-div-bd-color);
     border-radius:    var(--card-div-br);
-}
-
-.card-div ul {
-    display:         flex;
-    align-items:     center;
-    height:          100%;
-    gap:             20px;
-
-    list-style: none;
-
-}
-
-.card-div ul li:not(.separator) {
-    min-width: 8.75rem;
-}
-
-.card-div ul .separator {
-    height:   3rem;
-    width:    2px;
-    min-width: none;
-    
-    background-color: var(--card-div-separator-color);
-    border-radius:    1px;
-    flex-shrink: 0;
 }
 
 nav {
@@ -264,8 +246,6 @@ nav .btn {
     padding:     var(--app-nav-child-padding);
     gap:         var(--app-nav-child-gap);
 
-    background-color: rgba(255, 255, 255, 0.05);
-    border: var(--bd-width) solid rgba(255, 255, 255, 0.05);
     border-radius: var(--app-nav-child-br);
 
     text-decoration: none;
