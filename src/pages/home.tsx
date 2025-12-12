@@ -68,6 +68,10 @@ export default function Home() {
                             ))}
                         </ul>
                     </article>
+
+                    <div className="landscape">
+
+                    </div>
                 </section>
 
                 <hr />
