@@ -1,4 +1,4 @@
-import CLOUDS from "vanta/dist/vanta.clouds";
+import CLOUDS from "vanta/dist/vanta.clouds.min";
 import * as THREE from "three";
 import SunCalc from "suncalc";
 
@@ -12,6 +12,11 @@ type PhaseColors = {
   sunGlareColor: number;
   sunlightColor: number;
   speed: number;
+};
+
+type VantaCloudsInstance = {
+  setOptions: (options: PhaseColors) => void;
+  destroy?: () => void;
 };
 
 const PHASE_COLORS: Record<Phase, PhaseColors> = {
@@ -69,14 +74,8 @@ function getCurrentPhase(times: SunCalc.GetTimesResult, now: Date): Phase {
   return "night";
 }
 
-export function initLandscape(lat: number, lng: number): void {
-  const container = document.querySelector<HTMLElement>(".landscape");
-
-  if (!container) {
-    return;
-  }
-
-  const updateEffectPhase = (vantaEffect: { setOptions: (options: PhaseColors) => void }): void => {
+export function initLandscape(container: HTMLElement, lat: number, lng: number): () => void {
+  const updateEffectPhase = (vantaEffect: VantaCloudsInstance): void => {
     const currentDate = new Date();
     const times = SunCalc.getTimes(currentDate, lat, lng);
     const phase = getCurrentPhase(times, currentDate);
@@ -91,10 +90,13 @@ export function initLandscape(lat: number, lng: number): void {
     el: container,
     THREE,
     ...PHASE_COLORS[initialPhase],
-  });
+  }) as unknown as VantaCloudsInstance;
 
   const FIFTEEN_MINUTES = 15 * 60 * 1000;
-  setInterval(() => updateEffectPhase(vantaEffect), FIFTEEN_MINUTES);
-}
+  const intervalId = window.setInterval(() => updateEffectPhase(vantaEffect), FIFTEEN_MINUTES);
 
-initLandscape(-23.5558, -46.6396);
+  return () => {
+    window.clearInterval(intervalId);
+    vantaEffect.destroy?.();
+  };
+}
