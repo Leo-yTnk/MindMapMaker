@@ -65,7 +65,7 @@
 
     --card-bg-color:     var(--gray2);
     --card-bd-color:     var(--gray3);
-    --card-br:           1.25rem;
+    --card-br:           2rem;
     --card-bs:           0 0 1rem rgba(0, 0, 0, 0.5);
 
     /* Card Button */
@@ -86,7 +86,7 @@
 
     --card-div-bg-color: rgba(255, 255, 255, 0.1);
     --card-div-bd-color: rgba(255, 255, 255, 0.1);
-    --card-div-br: 1.5rem;
+    --card-div-br: 1rem;
     --card-div-separator-color: rgba(255, 255, 255, 0.4);
 
     /* App Nav */
@@ -150,7 +150,7 @@ button, .btn {
     justify-content: center;
 
     font-size: 0.85rem;
-    color: var(--btn-fc);
+    color:     var(--btn-fc);
     
     cursor:     pointer;
     transition: background-color 0.3s ease-out, border 0.3s ease-out, color 0.3s ease-out;
@@ -189,51 +189,15 @@ button.active,
     outline-offset:   var(--hcard-outline-offset);
 }
 
-.card.white {
-    background-color: var(--wcard-bg);
-    border: none;
-}
-
-.card button,
-.card .btn {
-    height:        var(--card-btn-height);
-    padding:       var(--card-btn-padding);
-    gap:         0.3rem;
-
-    background-color: var(--btn-bg-color);
-    border:           none;
-    border-radius:    var(--card-btn-br);
-}
-
-.card button span, 
-.card .btn span {
-    background: var(--btn-fc);
-    -webkit-background-clip: text;
-            background-clip: text;
-    font-weight: bold;
-    font-size: 0.95rem;
-    color: transparent;
-}
-
-.card button svg {
-    height: var(--icons-size);
-    color: var(--highlight);
-}
-
 .card-div {
+    display:   flex;
     width:     fit-content;
     max-width: 100%;
-    padding: var(--card-div-padding);
+    padding:   var(--card-div-padding);
 
     background-color: var(--card-div-bg-color);
     border:           var(--bd-width) solid var(--card-div-bd-color);
     border-radius:    var(--card-div-br);
-
-    overflow-x: auto;
-}
-
-.card-div::-webkit-scrollbar {
-    display: none;
 }
 
 .card-div ul {
@@ -247,7 +211,7 @@ button.active,
 }
 
 .card-div ul li:not(.separator) {
-    min-width: 10rem;
+    min-width: 8.75rem;
 }
 
 .card-div ul .separator {
@@ -255,8 +219,8 @@ button.active,
     width:    2px;
     min-width: none;
     
-    border-radius: 1px;
     background-color: var(--card-div-separator-color);
+    border-radius:    1px;
     flex-shrink: 0;
 }
 
