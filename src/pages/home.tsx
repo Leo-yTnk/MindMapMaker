@@ -1,25 +1,46 @@
-import "../styles/home.css"
-import { newDraft } from "../utils/newDraft.ts"
+import "../styles/home.css";
+import { newDraft } from "../utils/newDraft.ts";
+
+type DashboardAction = {
+    title: string;
+    description: string;
+    type: Parameters<typeof newDraft>[0];
+};
+
+const timeBoundaries = {
+    morningEnd: 12,
+    afternoonEnd: 18,
+};
+
+const defaultGreeting = "Olá";
+const defaultUsername = "TestUser";
+
+const dashboardActions: DashboardAction[] = [
+    { title: "Mapa Mental", description: "Ideal para organizar visualmente ideias", type: "mindmap" },
+    { title: "Flashcards", description: "Ideal para memorizar rapidamente conteúdos", type: "mindmap" },
+    { title: "Quiz", description: "Ideal para testar o entendimento e reforçar", type: "mindmap" },
+];
+
+function getGreeting(hour: number): string {
+    if (hour < timeBoundaries.morningEnd) {
+        return "Bom dia";
+    }
+
+    if (hour < timeBoundaries.afternoonEnd) {
+        return "Boa tarde";
+    }
+
+    return "Boa noite";
+}
 
 export default function Home() {
-    function getGreeting() {
-        const now = new Date();
-        const hour = now.getHours();
-    
-        if (hour < 12) {
-            return "Bom dia";
-        } else if (hour < 18) {
-            return "Boa tarde";
-        } else {
-            return "Boa noite";
-        }
-    }
-    
-    let greeting = getGreeting()
-    let username = "TestUser"
+    const currentTime = new Date();
+    const currentHour = currentTime.getHours();
+    const greeting = getGreeting(currentHour);
+    const username = defaultUsername;
 
-    const greetingMsg = greeting || "Olá";
-    const usernameMsg = username ? `, ${username}!` : "!";
+    const greetingMessage = greeting || defaultGreeting;
+    const usernameMessage = username ? `, ${username}!` : "!";
 
     return (
         <>
@@ -28,8 +49,8 @@ export default function Home() {
                 <section className="card highlight dashboard">
                     <article className="greetings">
                         <h3>
-                            <span className="greeting">{greetingMsg}</span>
-                            <span className="user-name">{usernameMsg}</span>
+                            <span className="greeting">{greetingMessage}</span>
+                            <span className="user-name">{usernameMessage}</span>
                         </h3>
 
                         <p>O que você vai fazer hoje?</p>
@@ -37,32 +58,18 @@ export default function Home() {
 
                     <article className="dashboard-data">
                         <ul>
-                            <li>
-                                <button className="card-div" onClick={() => newDraft('mindmap')}>
-                                    <h6>Mapa Mental</h6>
-                                    <p>Ideal para organizar visualmente ideias</p>
-                                </button>
-                            </li>
-
-                            <li>
-                                <button className="card-div" onClick={() => newDraft('mindmap')}>
-                                    <h6>Flashcards</h6>
-                                    <p>Ideal para memorizar rapidamente conteúdos</p>
-                                </button>
-                            </li>
-
-                            <li>
-                                <button className="card-div" onClick={() => newDraft('mindmap')}>
-                                    <h6>Quiz</h6>
-                                    <p>Ideal para testar o entendimento e reforçar</p>
-                                </button>
-                            </li>
-                        </ul>            
+                            {dashboardActions.map((action) => (
+                                <li key={action.title}>
+                                    <button className="card-div" onClick={() => newDraft(action.type)}>
+                                        <h6>{action.title}</h6>
+                                        <p>{action.description}</p>
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
                     </article>
                 </section>
 
-                    
-                
                 <hr />
 
                 <div className="card">
@@ -73,4 +80,3 @@ export default function Home() {
         </>
     );
 }
-  
