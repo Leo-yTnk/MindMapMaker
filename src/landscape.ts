@@ -1,4 +1,4 @@
-import CLOUDS from "vanta/dist/vanta.clouds";
+import CLOUDS from "vanta/dist/vanta.clouds.min";
 import * as THREE from "three";
 import SunCalc from "suncalc";
 
