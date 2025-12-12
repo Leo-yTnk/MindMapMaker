@@ -225,6 +225,7 @@ nav {
     border-radius:    var(--app-nav-br);
 
     overflow-x: auto;
+    z-index:    9999;
 }
 
 nav::-webkit-scrollbar {
