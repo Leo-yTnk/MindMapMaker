@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+import { initLandscape } from "../landscape.ts";
 import "../styles/home.css";
 import { newDraft } from "../utils/newDraft.ts";
 
@@ -38,6 +40,15 @@ export default function Home() {
     const currentHour = currentTime.getHours();
     const greeting = getGreeting(currentHour);
     const username = defaultUsername;
+    const landscapeRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        if (!landscapeRef.current) {
+            return undefined;
+        }
+
+        return initLandscape(landscapeRef.current, -23.5558, -46.6396);
+    }, []);
 
     const greetingMessage = greeting || defaultGreeting;
     const usernameMessage = username ? `, ${username}!` : "!";
@@ -69,8 +80,7 @@ export default function Home() {
                         </ul>
                     </article>
 
-                    <div className="landscape">
-                    </div>
+                    <div ref={landscapeRef} className="landscape"></div>
                 </section>
 
                 <hr />
