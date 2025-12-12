@@ -1,2 +1,0 @@
-declare module "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js";
-declare module "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/objects/Sky.js";
