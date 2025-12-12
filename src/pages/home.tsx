@@ -1,4 +1,5 @@
 import "../styles/home.css";
+import LandscapeSky from "../components/LandscapeSky.tsx";
 import { newDraft } from "../utils/newDraft.ts";
 
 type DashboardAction = {
@@ -70,7 +71,7 @@ export default function Home() {
                     </article>
 
                     <div className="landscape">
-
+                        <LandscapeSky />
                     </div>
                 </section>
 
