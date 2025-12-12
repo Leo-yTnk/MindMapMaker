@@ -44,14 +44,3 @@
     height: calc(var(--icons-size) * 2.5);
     color:  white;
 }
-
-.landscape {
-    position:       relative;
-    width:          100%;
-    height:         14rem;
-    margin-top:     var(--medium-gap);
-    border-radius:  1.5rem;
-    overflow:       hidden;
-    pointer-events: none;
-    background:     linear-gradient(180deg, #7eb6ff 0%, #cfe5ff 100%);
-}
