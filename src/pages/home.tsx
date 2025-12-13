@@ -10,6 +10,7 @@ type DashboardAction = {
 };
 
 const timeBoundaries = {
+    nightEnd: 6,
     morningEnd: 12,
     afternoonEnd: 18,
 };
@@ -24,6 +25,10 @@ const dashboardActions: DashboardAction[] = [
 ];
 
 function getGreeting(hour: number): string {
+    if (hour < timeBoundaries.nightEnd) {
+        return "Boa noite";
+    }
+
     if (hour < timeBoundaries.morningEnd) {
         return "Bom dia";
     }
