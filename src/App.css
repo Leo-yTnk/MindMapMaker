@@ -9,12 +9,12 @@
 
 :root {
     --lhighlight: color-mix(in srgb, var(--highlight) 80%, white);
-    --highlight: rgb(0, 140, 90);
-    --dhighlight: color-mix(in srgb, var(--highlight) 65%, black);
+    --highlight: #008c5a;
+    --dhighlight: color-mix(in srgb, var(--highlight) 90%, black);
 
     --secondary-lhighlight: color-mix(in srgb, var(--secondary-highlight) 80%, white);
-    --secondary-highlight: #007d96;
-    --secondary-dhighlight: color-mix(in srgb, var(--secondary-highlight) 65%, black);
+    --secondary-highlight: hsl(190, 100%, 29%);
+    --secondary-dhighlight: color-mix(in srgb, var(--secondary-highlight) 90%, black);
 
     --gray1: rgb(0, 0, 0);
     --gray2: color-mix(in srgb, var(--gray1) 95%, white);
@@ -82,7 +82,7 @@
     /* Highlight Card */
     --hcard-padding: 1.75rem; 
 
-    --hcard-bg-color:       linear-gradient(45deg, var(--highlight), var(--secondary-highlight));
+    --hcard-bg-color:       linear-gradient(45deg, var(--dhighlight), var(--secondary-dhighlight));
     --hcard-outline-color:  rgba(255, 255, 255, 0.125);
     --hcard-outline-width:  calc(var(--bd-width) * 2);
     --hcard-outline-offset: calc(var(--hcard-padding) / -2);
