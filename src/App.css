@@ -8,11 +8,11 @@
 }
 
 :root {
-    --lhighlight: color-mix(in srgb, var(--highlight) 65%, white);
-    --highlight: #4b00c8;
+    --lhighlight: color-mix(in srgb, var(--highlight) 80%, white);
+    --highlight: rgb(0, 140, 90);
     --dhighlight: color-mix(in srgb, var(--highlight) 65%, black);
 
-    --secondary-lhighlight: color-mix(in srgb, var(--secondary-highlight) 65%, white);
+    --secondary-lhighlight: color-mix(in srgb, var(--secondary-highlight) 80%, white);
     --secondary-highlight: #007d96;
     --secondary-dhighlight: color-mix(in srgb, var(--secondary-highlight) 65%, black);
 
@@ -176,6 +176,25 @@ button.active,
     background-position: center;
 }
 
+button.inverted-active,
+.btn.inverted-active {
+    background-color: white;
+}
+
+button.inverted-active .icon,
+.btn.inverted-active .icon {
+    color: var(--highlight);
+}
+
+button.inverted-active .label,
+.btn.inverted-active .label {
+    background:              var(--btn-fc);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color:                   transparent;
+    font-weight:             700;
+}
+
 .card {
     display:        flex;
     flex-direction: column;
@@ -198,12 +217,13 @@ button.active,
 }
 
 .card-div {
-    display:   flex;
-    padding:   var(--card-div-padding);
+    display:  flex;
+    padding:  var(--card-div-padding);
 
     background-color: var(--card-div-bg-color);
     border:           var(--bd-width) solid var(--card-div-bd-color);
     border-radius:    var(--card-div-br);
+    color: white;
 }
 
 nav {

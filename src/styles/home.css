@@ -15,6 +15,7 @@
     justify-content: start;
     width:           fit-content;
     max-width:       100%;
+    padding-top:     7.5px;
     gap:             var(--medium-gap);
 
     list-style: none;
@@ -30,17 +31,70 @@
     flex-shrink: 0;
 }
 
-.dashboard ul li button {
+.dashboard ul li div {
+    position:       relative;
     display:        flex;
     flex-direction: column;
-    align-items:    center;
-    height:         7.5rem;
-    
-    text-align: center;
+    align-items:    start;
+    transition:     transform 0.3s;
+}
+
+.dashboard ul li div:hover {
+    transform: translateY(-7.5px);
 }
 
 .dashboard-data ul li div svg {
     width:  calc(var(--icons-size) * 2.5);
     height: calc(var(--icons-size) * 2.5);
     color:  white;
+}
+
+.dashboard-data ul li div p {
+    font-size: 0.85rem;
+}
+
+.dashboard-data ul li div button {
+    position: absolute;
+    top:    calc(var(--card-div-padding) / 1.5);
+    right:  calc(var(--card-div-padding) / 1.5);
+    height: 1.75rem;
+    width:  1.75rem;
+    border-radius: 0.5rem;
+    transition: width 0.3s;
+    overflow: hidden;
+}
+
+.dashboard-data ul li div button:hover {
+    width: 5rem;
+}
+
+.dashboard-data ul li div button .icon {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.dashboard-data ul li div button .label {
+    width:          0;
+    opacity:        0;
+    visibility:     hidden;
+    pointer-events: none;
+    
+
+    will-change: opacity;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0s linear 0.3s,
+        width 0s linear 0.3s;
+}
+
+.dashboard-data ul li div button:hover .label,
+.dashboard-data ul li div button:focus-visible .label {
+    width:          fit-content;
+    opacity:        1;
+    visibility:     visible;
+    pointer-events: auto;
+    margin-left:    5px;
+
+    transition: opacity 0.3s ease;
 }
