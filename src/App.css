@@ -13,7 +13,7 @@
     --dhighlight: color-mix(in srgb, var(--highlight) 90%, black);
 
     --secondary-lhighlight: color-mix(in srgb, var(--secondary-highlight) 80%, white);
-    --secondary-highlight: hsl(190, 100%, 29%);
+    --secondary-highlight: #007b94;
     --secondary-dhighlight: color-mix(in srgb, var(--secondary-highlight) 90%, black);
 
     --gray1: rgb(0, 0, 0);
@@ -92,9 +92,17 @@
     /* Card Div */
     --card-div-padding: 1rem;
 
-    --card-div-bg-color: rgba(255, 255, 255, 0.075);
+    --hcard-div-bg-color: rgba(255, 255, 255, 0.075);
+    --card-div-bg-color: rgba(255, 255, 255, 0.025);
     --card-div-bd-color: rgba(255, 255, 255, 0.1);
     --card-div-br: 1rem;
+
+    /* Card Highlight Div */
+    --card-hdiv-bg-color: linear-gradient(
+        -45deg,
+        #007b9433,
+        #008c5a33
+    );
 
     /* App Nav */
     --app-nav-width:        fit-content;
@@ -191,6 +199,7 @@ button.inverted-active,
 button.inverted-active .icon,
 .btn.inverted-active .icon {
     color: var(--highlight);
+    margin-right: 2px;
 }
 
 button.inverted-active .label,
@@ -223,14 +232,23 @@ button.inverted-active .label,
     outline-offset:   var(--hcard-outline-offset);
 }
 
-.card-div {
-    display:  flex;
+.card .card-div {
+    display:  inline-flex;
     padding:  var(--card-div-padding);
 
     background-color: var(--card-div-bg-color);
     border:           var(--bd-width) solid var(--card-div-bd-color);
     border-radius:    var(--card-div-br);
     color: white;
+}
+
+.card.highlight .card-div {
+    background-color: var(--hcard-div-bg-color);
+}
+
+.card .card-div.highlight {
+    background: var(--card-hdiv-bg-color);
+    border:     none;
 }
 
 nav {
@@ -304,7 +322,7 @@ main {
     padding: var(--main-padding);
 }
 
-main .content {
+main .content, main .content-div {
     display:        flex;
     flex-direction: column;
     gap:            var(--main-gap);

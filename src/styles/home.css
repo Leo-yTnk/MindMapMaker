@@ -10,12 +10,11 @@
 }
 
 .hero-list ul {
-    display:         flex;
+    display:         inline-flex;
     flex-direction:  column;
-    align-items:     center;
+    align-items:     stretch;
     justify-content: start;
     width:           100%;
-    max-width:       100%;
     gap:             var(--medium-gap);
 
     list-style: none;
@@ -27,7 +26,9 @@
 }
 
 .hero ul li {
-    width: 100%;
+    flex: 0 0 auto;
+    min-width: 12.5rem;
+    height: 100%;
     flex-shrink: 0;
 }
 
@@ -35,7 +36,7 @@
     position:       relative;
     display:        flex;
     flex-direction: column;
-    align-items:    start;
+    align-items:    center;
     transition:     transform 0.3s;
 }
 
@@ -46,62 +47,25 @@
     margin-bottom: 2.5px;
 }
 
-.hero-list ul li div p {
-    font-size: 0.85rem;
-}
-
 .hero-list ul li div button {
-    position: absolute;
-    top:    calc(var(--card-div-padding) / 1.5);
-    right:  calc(var(--card-div-padding) / 1.5);
-    height: 1.75rem;
-    width:  1.75rem;
+    height:  1.75rem;
+    width:   100%;
+    padding: 0 1rem;
     border-radius: 0.5rem;
-    transition: width 0.3s;
-    overflow: hidden;
+    margin-top: 2px;
 }
 
-.hero-list ul li div button:hover {
-    width: 5rem;
+.statistics .statistics-data {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+    gap: var(--small-gap);
 }
 
-.hero-list ul li div button .icon {
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.hero-list ul li div button .label {
-    width:          0;
-    opacity:        0;
-    visibility:     hidden;
-    pointer-events: none;
-    
-
-    will-change: opacity;
-
-    transition:
-        opacity 0.3s ease,
-        visibility 0s linear 0.3s,
-        width 0s linear 0.3s;
-}
-
-.hero-list ul li div button:hover .label,
-.hero-list ul li div button:focus-visible .label {
-    width:          fit-content;
-    opacity:        1;
-    visibility:     visible;
-    pointer-events: auto;
-    margin-left:    5px;
-
-    transition: opacity 0.3s ease;
-}
 
 @media (min-width: 600px) {
     .hero ul {
-        flex-direction: row;
-    }
-
-    .hero ul li {
-        width: 12.5rem;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
     }
 }
