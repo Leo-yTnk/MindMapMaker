@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-.hero-data ul {
+.hero-list ul {
     display:         flex;
     flex-direction:  column;
     align-items:     center;
@@ -22,7 +22,7 @@
     overflow-x: auto;
 }
 
-.hero-data ul::-webkit-scrollbar {
+.hero-list ul::-webkit-scrollbar {
     display: none;
 }
 
@@ -39,17 +39,18 @@
     transition:     transform 0.3s;
 }
 
-.hero-data ul li div svg {
+.hero-list ul li div svg {
     width:  calc(var(--icons-size) * 2.5);
     height: calc(var(--icons-size) * 2.5);
     color:  white;
+    margin-bottom: 2.5px;
 }
 
-.hero-data ul li div p {
+.hero-list ul li div p {
     font-size: 0.85rem;
 }
 
-.hero-data ul li div button {
+.hero-list ul li div button {
     position: absolute;
     top:    calc(var(--card-div-padding) / 1.5);
     right:  calc(var(--card-div-padding) / 1.5);
@@ -60,16 +61,16 @@
     overflow: hidden;
 }
 
-.hero-data ul li div button:hover {
+.hero-list ul li div button:hover {
     width: 5rem;
 }
 
-.hero-data ul li div button .icon {
+.hero-list ul li div button .icon {
     font-size: 1.25rem;
     font-weight: 600;
 }
 
-.hero-data ul li div button .label {
+.hero-list ul li div button .label {
     width:          0;
     opacity:        0;
     visibility:     hidden;
@@ -84,8 +85,8 @@
         width 0s linear 0.3s;
 }
 
-.hero-data ul li div button:hover .label,
-.hero-data ul li div button:focus-visible .label {
+.hero-list ul li div button:hover .label,
+.hero-list ul li div button:focus-visible .label {
     width:          fit-content;
     opacity:        1;
     visibility:     visible;
