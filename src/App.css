@@ -23,14 +23,16 @@
     --gray5: color-mix(in srgb, var(--gray1) 80%, white);
     --gray6: color-mix(in srgb, var(--gray1) 75%, white);
 
-    --lgray1: color-mix(in srgb, var(--gray1) 80%, transparent);
-    --lgray2: color-mix(in srgb, var(--gray2) 80%, transparent);
-    --lgray3: color-mix(in srgb, var(--gray3) 80%, transparent);
-    --lgray4: color-mix(in srgb, var(--gray4) 80%, transparent);
-    --lgray5: color-mix(in srgb, var(--gray5) 80%, transparent);
-    --lgray6: color-mix(in srgb, var(--gray6) 80%, transparent);
+    --lgray1: color-mix(in srgb, var(--gray1) 85%, transparent);
+    --lgray2: color-mix(in srgb, var(--gray2) 85%, transparent);
+    --lgray3: color-mix(in srgb, var(--gray3) 85%, transparent);
+    --lgray4: color-mix(in srgb, var(--gray4) 85%, transparent);
+    --lgray5: color-mix(in srgb, var(--gray5) 85%, transparent);
+    --lgray6: color-mix(in srgb, var(--gray6) 85%, transparent);
 
     --bd-width:   1px;
+    --hr-width:   1.5px;
+    --hr-color:   var(--gray4);
     --icons-size: 13px;
 
     /* Typography */
@@ -62,7 +64,7 @@
 
     /* Main */
     --main-padding: 3rem 3rem calc(var(--app-nav-height) + 3rem) 3rem;
-    --main-gap: 1rem;
+    --main-gap:     1rem;
 
     /* Card */
     --card-width:        fit-content;
@@ -100,7 +102,7 @@
     --app-nav-padding:      1.25rem;
 
     --app-nav-bg-color:     var(--lgray2);
-    --app-nav-blur:         1rem;
+    --app-nav-blur:         5px;
     --app-nav-bd-color:     var(--lgray3);
     --app-nav-br:           17.5px;
 
@@ -133,6 +135,11 @@ h6 { font-size: var(--fs-6); }
 .text-outline {
     -webkit-text-stroke: var(--bd-width) white;
     color: transparent;
+}
+
+hr {
+    border:        var(--hr-width) solid var(--hr-color);
+    border-radius: calc(var(--hr-width) / 2);
 }
 
 body {
