@@ -114,9 +114,6 @@ export default function Home() {
                     </section>
 
                     <section className="statistics card">
-                        <div className="streak card-div">
-                            
-                        </div>
     
                         <h3>Dados Semanais</h3>
                         <p>Durante essa semana, você:</p>
