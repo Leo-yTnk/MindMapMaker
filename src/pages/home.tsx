@@ -93,7 +93,7 @@ export default function Home() {
                         </article>
 
                         <article className="hero-list">
-                            <ul>
+                            <ul className="cards-list">
                                 {heroActions.map((action) => (
                                     <li key={action.title} className={action.class}>
                                         <div className="card-div">
@@ -121,7 +121,7 @@ export default function Home() {
                         <h3>Dados Semanais</h3>
                         <p>Durante essa semana, você:</p>
                         
-                        <ul className="statistics-data">
+                        <ul className="statistics-data cards-list">
                             <li>
                                 <div className="card-div">
                                     <p>Estudou por</p>

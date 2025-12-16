@@ -97,13 +97,6 @@
     --card-div-bd-color: rgba(255, 255, 255, 0.1);
     --card-div-br: 1rem;
 
-    /* Card Highlight Div */
-    --card-hdiv-bg-color: linear-gradient(
-        -45deg,
-        #007b9433,
-        #008c5a33
-    );
-
     /* App Nav */
     --app-nav-width:        fit-content;
     --app-nav-height:       3rem;
@@ -232,6 +225,16 @@ button.inverted-active .label,
     outline-offset:   var(--hcard-outline-offset);
 }
 
+.cards-list {
+    display:               grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-auto-flow:        column;
+    gap:                   var(--medium-gap);
+
+    list-style: none;
+    overflow-x: auto;
+}
+
 .card .card-div {
     display:  inline-flex;
     padding:  var(--card-div-padding);
@@ -244,11 +247,6 @@ button.inverted-active .label,
 
 .card.highlight .card-div {
     background-color: var(--hcard-div-bg-color);
-}
-
-.card .card-div.highlight {
-    background: var(--card-hdiv-bg-color);
-    border:     none;
 }
 
 nav {
