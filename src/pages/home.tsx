@@ -128,7 +128,7 @@ export default function Home() {
                             <li>
                                 <div className="card-div">
                                     <p>Criou/Editou</p>
-                                    <h6>0 conteúdos</h6>
+                                    <h6>0 conteúdoswefjwefwiuf</h6>
                                 </div>
                             </li>
                             <li>
